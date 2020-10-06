@@ -179,7 +179,11 @@ int 	str_count_words (const char *str){
         int count=0, tem_espaco;
         tem_espaco = str_find_first(str, ' ');
         if(tem_espaco == -1){
-            count++;
+            if(str_length(str) == 0){
+                return 0;
+            }else{
+                count++;
+            }
         }else{
             for (int i = 0; i < str_length(str); ++i) {
                 while (str[i] != ' ' && i <= str_length(str)){
